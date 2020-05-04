@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1140px;
+        }
+
+        section {
+            height: 500px;
+            overflow: hidden;
+        }
+
+        section div {
+            height: 500px;
+            width: 1140px;
+        }
+
+        .arrows {
+            display: flex;
+            justify-content: space-between;
+            font-size: 70px;
+            color: slategrey;
+        }
+
+        .arrows.container {
+            width: 100%;
+            position: absolute;
+            top: 215px;
+        }
+
+        .left-arrow,
+        .right-arrow {
+            cursor: pointer;
+        }
+
+        .d-none {
+            display: none;
+        }
+
+        .img1 {
+            background-image: url('https://cdn.pixabay.com/photo/2020/02/13/10/29/bees-4845211_960_720.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+
+        .img2 {
+            background-image: url('https://cdn.pixabay.com/photo/2020/04/29/12/35/ginger-5108742_960_720.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .img3 {
+            background-image: url('https://cdn.pixabay.com/photo/2020/04/12/07/15/trees-5033072_960_720.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container section">
+        <div class="img1">
+        </div>
+        <div class="d-none img2">
+        </div>
+        <div class="d-none img3">
+        </div>
+    </section>
+
+    <div class="arrows container">
+        <div class="left-arrow">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+
+        <div class="right-arrow">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/9973d20302.js"></script>
+    <script>
+        const pic1 = document.querySelector('section>div:nth-child(1)')
+        const pic2 = document.querySelector('section>div:nth-child(2)')
+        const pic3 = document.querySelector('section>div:nth-child(3)')
+
+        const leftArrow = document.querySelector('.left-arrow');
+        const rightArrow = document.querySelector('.right-arrow');
+
+        function nextSlide() {
+            if (!pic1.classList.contains("d-none")) {
+                pic1.classList.add("d-none");
+                pic2.classList.remove("d-none");
+            }
+
+            else if (!pic2.classList.contains("d-none")) {
+                pic2.classList.add("d-none");
+                pic3.classList.remove("d-none");
+            }
+
+            else if (!pic3.classList.contains("d-none")) {
+                pic3.classList.add("d-none");
+                pic1.classList.remove("d-none");
+            }
+        }
+
+
+        function previousSlide() {
+            if (!pic1.classList.contains("d-none")) {
+                pic1.classList.add("d-none");
+                pic3.classList.remove("d-none");
+            }
+
+            else if (!pic2.classList.contains("d-none")) {
+                pic2.classList.add("d-none");
+                pic1.classList.remove("d-none");
+            }
+
+            else if (!pic3.classList.contains("d-none")) {
+                pic3.classList.add("d-none");
+                pic2.classList.remove("d-none");
+            }
+        }
+
+        rightArrow.addEventListener('click', nextSlide);
+        leftArrow.addEventListener('click', previousSlide);
+
+    </script>
+</body>
+
+</html>
