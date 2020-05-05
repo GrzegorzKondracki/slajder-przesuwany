@@ -19,7 +19,9 @@
 
         section {
             height: 500px;
+
             overflow: hidden;
+            position: relative;
         }
 
         section div {
@@ -55,11 +57,13 @@
             background-position: center;
         }
 
-
         .img2 {
             background-image: url('https://cdn.pixabay.com/photo/2020/04/29/12/35/ginger-5108742_960_720.jpg');
             background-repeat: no-repeat;
             background-position: center;
+            animation-name: slide;
+            animation-duration: 0.5s;
+            position: absolute;
         }
 
         .img3 {
@@ -67,16 +71,26 @@
             background-repeat: no-repeat;
             background-position: center;
         }
+
+        @keyframes slide {
+            0% {
+                right: -1140px;
+            }
+
+            100% {
+                right: 0;
+            }
+        }
     </style>
 </head>
 
 <body>
     <section class="container section">
-        <div class="img1">
+        <div class="img1 slide">
         </div>
-        <div class="d-none img2">
+        <div class="d-none img2 slide">
         </div>
-        <div class="d-none img3">
+        <div class="d-none img3 slide">
         </div>
     </section>
 
