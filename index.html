@@ -85,7 +85,7 @@
 
 <body>
     <section class="container section">
-        <div class="img1 slide">
+        <div class="img1 slide" data-slide>
         </div>
         <div class="d-none img2 slide">
         </div>
@@ -105,7 +105,7 @@
 
     <script src="https://kit.fontawesome.com/9973d20302.js"></script>
 
-    <!-- <script>
+    <script>
         const pic1 = document.querySelector('section>div:nth-child(1)')
         const pic2 = document.querySelector('section>div:nth-child(2)')
         const pic3 = document.querySelector('section>div:nth-child(3)')
@@ -151,16 +151,6 @@
         rightArrow.addEventListener('click', nextSlide);
         leftArrow.addEventListener('click', previousSlide);
 
-    </script> -->
-
-    <script>
-        const imageArr = [
-            "./images/bees.jpg",
-            "./images/gingesr.jpg",
-            "./images/trees.jpg",
-        ]
-
-        const slider = new Slider(imageArr)
     </script>
 </body>
 
